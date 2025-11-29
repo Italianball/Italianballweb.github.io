@@ -4,24 +4,6 @@
     <title>Italianball</title>
     <style>
         body { 
-       <script>
-// 保存原始标题
-const originalTitle = document.title;
-
-// 离开时的标题（可以自定义）
-const awayTitle = "为什么离开我!我铜丝你!";
-
-// 监听页面可见性变化
-document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        // 用户切换到其他标签页
-        document.title = awayTitle;
-    } else {
-        // 用户回到这个标签页
-        document.title = originalTitle;
-    }
-});
-</script>
             font-family: Arial, sans-serif; 
             max-width: 800px; 
             margin: 0 auto; 
@@ -42,5 +24,24 @@ document.addEventListener('visibilitychange', function() {
         <p>很快就会有更多内容！</p>
         <p><small>最后更新: 2025.11.23(UTC+8)</small></p>
     </div>
+
+    <script>
+        // 保存原始标题
+        const originalTitle = document.title;
+
+        // 离开时的标题（可以自定义）
+        const awayTitle = "为什么离开我!我铜丝你!";
+
+        // 监听页面可见性变化
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // 用户切换到其他标签页
+                document.title = awayTitle;
+            } else {
+                // 用户回到这个标签页
+                document.title = originalTitle;
+            }
+        });
+    </script>
 </body>
 </html>
