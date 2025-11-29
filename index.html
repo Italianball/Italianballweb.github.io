@@ -4,32 +4,32 @@
     <title>Italianball</title>
 
     <!-- 基本 Favicon -->
-<link rel="icon" type="image/x-icon" href="/ico/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/ico/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/ico/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/ico/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/ico/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/ico/favicon-16x16.png">
 
-<!-- Apple 设备 -->
-<link rel="apple-touch-icon" sizes="57x57" href="/ico/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/ico/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/ico/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/ico/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/ico/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/ico/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/ico/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/ico/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/ico/apple-icon-180x180.png">
+    <!-- Apple 设备 -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/ico/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/ico/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/ico/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/ico/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/ico/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/ico/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/ico/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/ico/apple-touch-icon-180x180.png">
 
-<!-- Android -->
-<link rel="icon" type="image/png" sizes="192x192" href="/ico/android-icon-192x192.png">
+    <!-- Android -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/ico/android-icon-192x192.png">
 
-<!-- Windows -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ico/ms-icon-144x144.png">
+    <!-- Windows -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ico/ms-icon-144x144.png">
 
-<!-- Web App 配置 -->
-<link rel="manifest" href="/ico/manifest.json">
-<meta name="theme-color" content="#ffffff">
+    <!-- Web App 配置 -->
+    <link rel="manifest" href="/ico/manifest.json">
+    <meta name="theme-color" content="#ffffff">
     
     <style>
         body { 
@@ -38,10 +38,16 @@
             margin: 0 auto; 
             padding: 20px; 
             line-height: 1.6;
+            /* 添加过渡效果使背景切换更平滑 */
+            transition: background-image 0.5s ease;
         }
         .container { 
             text-align: center; 
             margin-top: 50px;
+            /* 添加半透明背景让文字更易读 */
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
         }
         h1 { color: #333; }
     </style>
@@ -52,49 +58,59 @@
         <p>这是穆罕默德.Italianball.侯赛因的个人网站，正在建设中...</p>
         <p>很快就会有更多内容！</p>
         <p><small>最后更新: 2025.11.23(UTC+8)</small></p>
+        <!-- 添加一个刷新背景的按钮 -->
+        <button onclick="setRandomBackground()" style="margin-top: 20px; padding: 10px 20px;">
+            换个背景
+        </button>
     </div>
 
-   <script>
-    // 保存原始标题
-    const originalTitle = document.title;
-    const awayTitle = "为什么离开我!我铜丝你!";
+    <script>
+        // 保存原始标题
+        const originalTitle = document.title;
+        const awayTitle = "为什么离开我!我铜丝你!";
 
-    // 监听页面可见性变化
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            // 用户切换到其他标签页
-            document.title = awayTitle;
-        } else {
-            // 用户回到这个标签页
-            document.title = originalTitle;
+        // 随机背景图片功能
+        const backgroundImages = [
+            '/background/Ruby Rose.jpg',
+            '/background/office.jpg', 
+            '/background/food.jpg',
+            '/background/fish.jpg',
+            '/background/room.jpg'
+        ];
+
+        // 随机选择一张背景图片
+        function setRandomBackground() {
+            if (backgroundImages.length === 0) {
+                console.log("没有背景图片可用");
+                return;
+            }
+            
+            const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+            const randomImage = backgroundImages[randomIndex];
+            
+            console.log("正在设置背景:", randomImage);
+            
+            document.body.style.backgroundImage = `url('${encodedImage}')`;
+            document.body.style.backgroundSize = 'cover';
+            document.body.style.backgroundPosition = 'center';
+            document.body.style.backgroundAttachment = 'fixed';
+            document.body.style.backgroundRepeat = 'no-repeat';
         }
-    });
 
-    // 随机背景图片功能
-    const backgroundImages = [
-        '/background/Ruby-Rose.jpg',
-        '/background/office.jpg', 
-        '/background/food.jpg',
-        '/background/fish.jpg',
-        '/background/room.jpg'
-        // 可以继续添加更多图片路径
-    ];
+        // 页面加载时设置随机背景
+        window.addEventListener('load', function() {
+            console.log("页面加载完成，设置随机背景");
+            setRandomBackground();
+        });
 
-    // 随机选择一张背景图片
-    function setRandomBackground() {
-        if (backgroundImages.length === 0) return;
-        
-        const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-        const randomImage = backgroundImages[randomIndex];
-        
-        document.body.style.backgroundImage = `url('${randomImage}')`;
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.backgroundPosition = 'center';
-        document.body.style.backgroundAttachment = 'fixed';
-    }
-
-    // 页面加载时设置随机背景
-    window.addEventListener('load', setRandomBackground);
-</script>
+        // 监听页面可见性变化（标题切换）
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = awayTitle;
+            } else {
+                document.title = originalTitle;
+            }
+        });
+    </script>
 </body>
 </html>
