@@ -54,49 +54,47 @@
         <p><small>最后更新: 2025.11.23(UTC+8)</small></p>
     </div>
 
-    <script>
-        // 保存原始标题
-        const originalTitle = document.title;
+   <script>
+    // 保存原始标题
+    const originalTitle = document.title;
+    const awayTitle = "为什么离开我!我铜丝你!";
 
-        // 离开时的标题（可以自定义）
-        const awayTitle = "为什么离开我!我铜丝你!";
+    // 监听页面可见性变化
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            // 用户切换到其他标签页
+            document.title = awayTitle;
+        } else {
+            // 用户回到这个标签页
+            document.title = originalTitle;
+        }
+    });
 
-        // 监听页面可见性变化
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                // 用户切换到其他标签页
-                document.title = awayTitle;
-            } else {
-                // 用户回到这个标签页
-                document.title = originalTitle;
+    // 随机背景图片功能
+    const backgroundImages = [
+        '/background/Ruby Rose.jpg',
+        '/background/office.jpg', 
+        '/background/food.jpg',
+        '/background/fish.jpg',
+        '/background/room.jpg'
+        // 可以继续添加更多图片路径
+    ];
 
-                // 随机背景图片功能
-const backgroundImages = [
-    '/background/Ruby Rose.jpg',
-    '/background/office.jpg', 
-    '/background/food.jpg',
-    '/background/fish.jpg',
-    '/background/room.jpg'
-    // 可以继续添加更多图片路径
-];
+    // 随机选择一张背景图片
+    function setRandomBackground() {
+        if (backgroundImages.length === 0) return;
+        
+        const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+        const randomImage = backgroundImages[randomIndex];
+        
+        document.body.style.backgroundImage = `url('${randomImage}')`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundAttachment = 'fixed';
+    }
 
-// 随机选择一张背景图片
-function setRandomBackground() {
-    if (backgroundImages.length === 0) return;
-    
-    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-    const randomImage = backgroundImages[randomIndex];
-    
-    document.body.style.backgroundImage = `url('${randomImage}')`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundAttachment = 'fixed';
-}
-
-// 页面加载时设置随机背景
-window.addEventListener('load', setRandomBackground);
-            }
-        });
-    </script>
+    // 页面加载时设置随机背景
+    window.addEventListener('load', setRandomBackground);
+</script>
 </body>
 </html>
