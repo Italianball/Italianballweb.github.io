@@ -64,56 +64,56 @@
     </div>
 
     <script>
-        // 保存原始标题
-        const originalTitle = document.title;
-        const awayTitle = "为什么离开我!我铜丝你!";
+    // 保存原始标题
+    const originalTitle = document.title;
+    const awayTitle = "为什么离开我!我铜丝你!";
 
-        // 监听页面可见性变化 - 标题切换
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                document.title = awayTitle;
-            } else {
-                document.title = originalTitle;
-            }
-        });
-
-        // 随机背景图片功能
-        const backgroundImages = [
-            '/background/Ruby-Rose.png',
-            '/background/office.png', 
-            '/background/food.png',
-            '/background/fish.png',
-            '/background/room.png'
-        ];
-
-        // 随机选择一张背景图片
-        function setRandomBackground() {
-            if (encodedBackgroundImages.length === 0) {
-                console.log("没有背景图片可用");
-                return;
-            }
-            
-            const randomIndex = Math.floor(Math.random() * encodedBackgroundImages.length);
-            const randomImage = encodedBackgroundImages[randomIndex];
-            
-            console.log("设置背景图片:", randomImage);
-            
-            // 设置背景图片
-            document.body.style.backgroundImage = `url('${randomImage}')`;
-            document.body.style.backgroundSize = 'cover';
-            document.body.style.backgroundPosition = 'center';
-            document.body.style.backgroundAttachment = 'fixed';
-            document.body.style.backgroundRepeat = 'no-repeat';
-            
-            // 设置白色半透明背景让文字更清晰
-            document.body.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+    // 监听页面可见性变化 - 标题切换
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = awayTitle;
+        } else {
+            document.title = originalTitle;
         }
+    });
 
-        // 页面加载时设置随机背景
-        window.addEventListener('DOMContentLoaded', function() {
-            console.log("页面加载完成，设置随机背景");
-            setRandomBackground();
-        });
-    </script>
+    // 随机背景图片功能
+    const backgroundImages = [
+        '/background/Ruby-Rose.png',
+        '/background/office.png', 
+        '/background/food.png',
+        '/background/fish.png',
+        '/background/room.png'
+    ];
+
+    // 随机选择一张背景图片
+    function setRandomBackground() {
+        if (backgroundImages.length === 0) {
+            console.log("没有背景图片可用");
+            return;
+        }
+        
+        const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+        const randomImage = backgroundImages[randomIndex];
+        
+        console.log("设置背景图片:", randomImage);
+        
+        // 设置背景图片
+        document.body.style.backgroundImage = `url('${randomImage}')`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundAttachment = 'fixed';
+        document.body.style.backgroundRepeat = 'no-repeat';
+        
+        // 设置白色半透明背景让文字更清晰
+        document.body.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+    }
+
+    // 页面加载时设置随机背景
+    window.addEventListener('DOMContentLoaded', function() {
+        console.log("页面加载完成，设置随机背景");
+        setRandomBackground();
+    });
+</script>
 </body>
 </html>
